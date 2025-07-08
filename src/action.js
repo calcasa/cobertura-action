@@ -231,7 +231,7 @@ function markdownReport(reports, commit, options) {
         status(total),
         showMissing ? " " : undefined,
       ],
-      ...files,
+      //...files,
     ]
       .map((row) => {
         return `| ${row.filter(Boolean).join(" | ")} |`;

@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { MockAgent, setGlobalDispatcher } from "undici";
 import { action, markdownReport, addComment, listChangedFiles, addCheck } from "./action";
 
@@ -46,8 +47,6 @@ beforeEach(() => {
   mockAgent.disableNetConnect();
   setGlobalDispatcher(mockAgent);
   apiMock = mockAgent.get("https://api.github.com");
-  process.env["INPUT_REPO_TOKEN"] = "hunter2";
-  process.env["GITHUB_REPOSITORY"] = `${owner}/${repo}`;
   process.exitCode = 0;
   process.stdout.write = jest.fn();
 });

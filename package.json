@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --collectCoverage",
+    "test": "cross-env INPUT_REPO_TOKEN=hunter2 GITHUB_REPOSITORY=someowner/somerepo node --experimental-vm-modules node_modules/jest/bin/jest.js --collectCoverage",
     "lint": "eslint src/",
     "format": "eslint --fix src/",
     "package": "ncc build index.js",
@@ -38,9 +38,13 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",
+    "cross-env": "^10.1.0",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest": "^29.15.2",
     "eslint-plugin-prettier": "^5.5.5",
+    "@eslint/js": "^10.0.1",
+    "globals": "^17.6.0",
     "jest": "^30.2.0",
     "prettier": "^3.8.3"
   }

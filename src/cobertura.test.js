@@ -1,14 +1,14 @@
-const {
+import {
   processCoverage,
   trimFolder,
   longestCommonPrefix,
-} = require("./cobertura");
+} from "./cobertura";
 
 test("multiple files", async () => {
   const reports = await processCoverage("./src/fixtures/*-branch.xml");
   expect(reports.length).toBe(2);
-  expect(reports[0].folder).toBe("test-branch.xml");
-  expect(reports[1].folder).toBe("test-no-branch.xml");
+  expect(reports[1].folder).toBe("test-branch.xml");
+  expect(reports[0].folder).toBe("test-no-branch.xml");
 });
 
 test("processCoverage(test-branch.xml, {skipCovered: false})", async () => {
